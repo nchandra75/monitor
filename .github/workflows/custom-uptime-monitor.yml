@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+        with:
+          token: ${{ secrets.PAT_FOR_ACTIONS }}
+          fetch-depth: 0
+    
       - name: Check website status and record data
         run: |
           # List of websites to check
@@ -117,10 +120,12 @@ jobs:
           git config --global user.email 'action@github.com'
           git add results.md history.csv
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update uptime status and history" && git push)
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_FOR_ACTIONS }}
+  
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_FOR_ACTIONS }}
           publish_dir: .
           publish_branch: gh-pages
