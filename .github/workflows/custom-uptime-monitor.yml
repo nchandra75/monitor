@@ -1,0 +1,126 @@
+name: Uptime Check
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  check_uptime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Check website status and record data
+        run: |
+          # List of websites to check
+          websites=(
+            "https://nptel.ac.in"
+            "https://archive.nptel.ac.in"
+            "https://dashboard.dev.nptel.ac.in/InternalCandidateDashboard/"
+            "https://eex.dev.iitm.ac.in"
+            "https://jup.dev.iitm.ac.in"
+          )
+          
+          # Files to store results
+          results_file="results.md"
+          history_file="history.csv"
+          
+          # Ensure history file exists
+          [ ! -f $history_file ] && echo "timestamp,website,status,response_time" > $history_file
+          
+          echo "# Uptime Status" > $results_file
+          echo "Last updated: $(date -u)" >> $results_file
+          echo "" >> $results_file
+          
+          for site in "${websites[@]}"; do
+            start_time=$(date +%s.%N)
+            if curl -sSf $site -o /dev/null; then
+              status="up"
+              icon="✅"
+            else
+              status="down"
+              icon="❌"
+            fi
+            end_time=$(date +%s.%N)
+            response_time=$(echo "$end_time - $start_time" | bc)
+            
+            echo "$icon $site is $status (Response time: ${response_time}s)" >> $results_file
+            
+            # Append to history file
+            echo "$(date -u +"%Y-%m-%d %H:%M:%S"),$site,$status,$response_time" >> $history_file
+          done
+          
+          # Generate summary statistics
+          echo "" >> $results_file
+          echo "## Summary Statistics (Last 24 hours)" >> $results_file
+          echo "\`\`\`" >> $results_file
+          awk -F',' '
+            BEGIN {OFS=","}
+            NR>1 && $1 >= systime()-86400 {
+              count[$2]++
+              if ($3 == "up") uptime[$2]++
+              total_time[$2] += $4
+            }
+            END {
+              print "Website,Availability,Avg Response Time"
+              for (site in count) {
+                availability = (uptime[site] / count[site]) * 100
+                avg_time = total_time[site] / count[site]
+                printf "%s,%.2f%%,%.3fs\n", site, availability, avg_time
+              }
+            }
+          ' $history_file | column -t -s',' >> $results_file
+          echo "\`\`\`" >> $results_file
+          
+          # Generate Mermaid graph
+          echo "" >> $results_file
+          echo "## Uptime Graph (Last 24 hours)" >> $results_file
+          echo "\`\`\`mermaid" >> $results_file
+          echo "gantt" >> $results_file
+          echo "    title Uptime Timeline" >> $results_file
+          echo "    dateFormat YYYY-MM-DD HH:mm:ss" >> $results_file
+          echo "    axisFormat %H:%M" >> $results_file
+          
+          for site in "${websites[@]}"; do
+            echo "    section $site" >> $results_file
+            awk -F',' -v site="$site" '
+              $2 == site && $1 >= systime()-86400 {
+                if ($3 == "up") {
+                  print "        Up: active, " $1 ", 5m"
+                } else {
+                  print "        Down: crit, " $1 ", 5m"
+                }
+              }
+            ' $history_file >> $results_file
+          done
+          
+          echo "\`\`\`" >> $results_file
+
+      - name: Check for extended downtime and send alert
+        env:
+          GOOGLE_CHAT_WEBHOOK: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+        run: |
+          threshold_minutes=15
+          
+          for site in "${websites[@]}"; do
+            down_count=$(tail -n 288 $history_file | awk -F',' -v site="$site" '$2 == site && $3 == "down" {count++} END {print count}')
+            if [ "$down_count" -ge 3 ]; then
+              message="Alert: $site has been down for at least ${threshold_minutes} minutes."
+              curl -X POST -H "Content-Type: application/json" -d "{\"text\": \"$message\"}" $GOOGLE_CHAT_WEBHOOK
+            fi
+          done
+      
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add results.md history.csv
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update uptime status and history" && git push)
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
