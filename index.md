@@ -1,3 +1,8 @@
+---
+layout: default
+title: Uptime Status
+---
+
 # Uptime Status
 Last updated: Sat Sep 14 02:56:10 UTC 2024
 
