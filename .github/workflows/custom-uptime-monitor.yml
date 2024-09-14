@@ -129,3 +129,4 @@ jobs:
           github_token: ${{ secrets.PAT_FOR_ACTIONS }}
           publish_dir: .
           publish_branch: gh-pages
+          enable_jekyll: true
