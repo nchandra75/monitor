@@ -26,7 +26,7 @@ jobs:
           )
           
           # Files to store results
-          results_file="results.md"
+          results_file="index.md"
           history_file="history.csv"
           
           # Ensure history file exists
