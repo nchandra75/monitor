@@ -2124,3 +2124,8 @@ timestamp,website,status,response_time
 2024-09-18 21:26:45,https://dashboard.dev.nptel.ac.in/InternalCandidateDashboard/,up,.774174176
 2024-09-18 21:26:46,https://eex.dev.iitm.ac.in,up,1.126845935
 2024-09-18 21:26:47,https://jup.dev.iitm.ac.in,up,.928534565
+2024-09-18 21:38:10,https://nptel.ac.in,down,.122034293
+2024-09-18 21:38:11,https://archive.nptel.ac.in,up,1.172494786
+2024-09-18 21:38:12,https://dashboard.dev.nptel.ac.in/InternalCandidateDashboard/,up,.780973107
+2024-09-18 21:38:13,https://eex.dev.iitm.ac.in,up,1.221649419
+2024-09-18 21:38:14,https://jup.dev.iitm.ac.in,up,.944470320
