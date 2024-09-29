@@ -1,17 +1,17 @@
 # Uptime Status
-Last updated: Sun Sep 29 22:41:20 UTC 2024
+Last updated: Sun Sep 29 22:52:42 UTC 2024
 
-✅ https://nptel.ac.in is up (Response time: .280060935s)
-✅ https://archive.nptel.ac.in is up (Response time: 1.119155201s)
-✅ https://dashboard.dev.nptel.ac.in/InternalCandidateDashboard/ is up (Response time: .954520454s)
-✅ https://eex.dev.iitm.ac.in is up (Response time: 1.201815656s)
-✅ https://jup.dev.iitm.ac.in is up (Response time: 1.004327800s)
+✅ https://nptel.ac.in is up (Response time: .228780247s)
+✅ https://archive.nptel.ac.in is up (Response time: 1.203494015s)
+✅ https://dashboard.dev.nptel.ac.in/InternalCandidateDashboard/ is up (Response time: .884328278s)
+✅ https://eex.dev.iitm.ac.in is up (Response time: 1.250726725s)
+✅ https://jup.dev.iitm.ac.in is up (Response time: .970154356s)
 
 ## Summary Statistics (Last 24 hours)
 ```
 Website                                                        Availability  Avg Response Time
 https://eex.dev.iitm.ac.in                                     100.00%       1.278s
-https://jup.dev.iitm.ac.in                                     99.69%        1.082s
+https://jup.dev.iitm.ac.in                                     99.69%        1.081s
 https://dashboard.dev.nptel.ac.in/InternalCandidateDashboard/  100.00%       0.801s
 https://archive.nptel.ac.in                                    99.92%        1.437s
 https://nptel.ac.in                                            99.85%        0.322s
@@ -1316,6 +1316,7 @@ gantt
         Up: active, 2024-09-29 22:08:27, 5m
         Up: active, 2024-09-29 22:29:30, 5m
         Up: active, 2024-09-29 22:41:21, 5m
+        Up: active, 2024-09-29 22:52:42, 5m
     section https://archive.nptel.ac.in
         Up: active, 2024-09-13 17:02:37, 5m
         Up: active, 2024-09-13 17:19:15, 5m
@@ -2609,6 +2610,7 @@ gantt
         Up: active, 2024-09-29 22:08:28, 5m
         Up: active, 2024-09-29 22:29:31, 5m
         Up: active, 2024-09-29 22:41:22, 5m
+        Up: active, 2024-09-29 22:52:44, 5m
     section https://dashboard.dev.nptel.ac.in/InternalCandidateDashboard/
         Up: active, 2024-09-13 17:02:38, 5m
         Up: active, 2024-09-13 17:19:15, 5m
@@ -3902,6 +3904,7 @@ gantt
         Up: active, 2024-09-29 22:08:29, 5m
         Up: active, 2024-09-29 22:29:32, 5m
         Up: active, 2024-09-29 22:41:23, 5m
+        Up: active, 2024-09-29 22:52:44, 5m
     section https://eex.dev.iitm.ac.in
         Up: active, 2024-09-13 17:02:39, 5m
         Up: active, 2024-09-13 17:19:16, 5m
@@ -5195,6 +5198,7 @@ gantt
         Up: active, 2024-09-29 22:08:30, 5m
         Up: active, 2024-09-29 22:29:33, 5m
         Up: active, 2024-09-29 22:41:24, 5m
+        Up: active, 2024-09-29 22:52:46, 5m
     section https://jup.dev.iitm.ac.in
         Up: active, 2024-09-13 17:02:40, 5m
         Up: active, 2024-09-13 17:19:17, 5m
@@ -6488,4 +6492,5 @@ gantt
         Up: active, 2024-09-29 22:08:31, 5m
         Up: active, 2024-09-29 22:29:34, 5m
         Up: active, 2024-09-29 22:41:25, 5m
+        Up: active, 2024-09-29 22:52:47, 5m
 ```
