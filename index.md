@@ -1,11 +1,11 @@
 # Uptime Status
-Last updated: Tue Oct  8 01:49:02 UTC 2024
+Last updated: Tue Oct  8 02:46:11 UTC 2024
 
-✅ https://nptel.ac.in is up (Response time: .132591482s)
-✅ https://archive.nptel.ac.in is up (Response time: 1.188617769s)
-✅ https://dashboard.dev.nptel.ac.in/InternalCandidateDashboard/ is up (Response time: .727334091s)
-✅ https://eex.dev.iitm.ac.in is up (Response time: 1.245987787s)
-✅ https://jup.dev.iitm.ac.in is up (Response time: .934352300s)
+✅ https://nptel.ac.in is up (Response time: .286295011s)
+✅ https://archive.nptel.ac.in is up (Response time: 1.328026472s)
+✅ https://dashboard.dev.nptel.ac.in/InternalCandidateDashboard/ is up (Response time: .803883975s)
+✅ https://eex.dev.iitm.ac.in is up (Response time: 1.226558636s)
+✅ https://jup.dev.iitm.ac.in is up (Response time: 1.027487766s)
 
 ## Summary Statistics (Last 24 hours)
 ```
@@ -1932,6 +1932,7 @@ gantt
         Up: active, 2024-10-07 23:46:20, 5m
         Up: active, 2024-10-07 23:57:42, 5m
         Up: active, 2024-10-08 01:49:02, 5m
+        Up: active, 2024-10-08 02:46:11, 5m
     section https://archive.nptel.ac.in
         Up: active, 2024-09-13 17:02:37, 5m
         Up: active, 2024-09-13 17:19:15, 5m
@@ -3841,6 +3842,7 @@ gantt
         Up: active, 2024-10-07 23:46:22, 5m
         Up: active, 2024-10-07 23:57:43, 5m
         Up: active, 2024-10-08 01:49:03, 5m
+        Up: active, 2024-10-08 02:46:12, 5m
     section https://dashboard.dev.nptel.ac.in/InternalCandidateDashboard/
         Up: active, 2024-09-13 17:02:38, 5m
         Up: active, 2024-09-13 17:19:15, 5m
@@ -5750,6 +5752,7 @@ gantt
         Up: active, 2024-10-07 23:46:23, 5m
         Up: active, 2024-10-07 23:57:44, 5m
         Up: active, 2024-10-08 01:49:04, 5m
+        Up: active, 2024-10-08 02:46:13, 5m
     section https://eex.dev.iitm.ac.in
         Up: active, 2024-09-13 17:02:39, 5m
         Up: active, 2024-09-13 17:19:16, 5m
@@ -7659,6 +7662,7 @@ gantt
         Up: active, 2024-10-07 23:46:24, 5m
         Up: active, 2024-10-07 23:57:45, 5m
         Up: active, 2024-10-08 01:49:05, 5m
+        Up: active, 2024-10-08 02:46:14, 5m
     section https://jup.dev.iitm.ac.in
         Up: active, 2024-09-13 17:02:40, 5m
         Up: active, 2024-09-13 17:19:17, 5m
@@ -9568,4 +9572,5 @@ gantt
         Up: active, 2024-10-07 23:46:25, 5m
         Up: active, 2024-10-07 23:57:47, 5m
         Up: active, 2024-10-08 01:49:06, 5m
+        Up: active, 2024-10-08 02:46:15, 5m
 ```
